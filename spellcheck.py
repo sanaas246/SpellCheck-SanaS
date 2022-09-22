@@ -71,7 +71,7 @@ def alicelinear(aliceWords, dictionary):
     startTime = time.time()
     for alword in aliceWords:
         results = linearSearch(dictionary, alword)
-        if results != -1:
+        if results == -1:
             wordcount += 1
     endTime = time.time()
     print(f"Number of words not found in dictionary: {wordcount} ({endTime-startTime}) seconds")
@@ -84,7 +84,7 @@ def alicebinary(aliceWords, dictionary):
     startTime = time.time()
     for alword in aliceWords:
         results = binarySearch(dictionary, alword)
-        if results != -1:
+        if results == -1:
             wordcount += 1
     endTime = time.time()
     print(f"Number of words not found in dictionary: {wordcount} ({endTime-startTime}) seconds")
