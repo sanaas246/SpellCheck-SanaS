@@ -70,7 +70,7 @@ def alicelinear(aliceWords, dictionary):
     print("Linear Searching Starting ...")
     startTime = time.time()
     for alword in aliceWords:
-        results = linearSearch(dictionary, alword)
+        results = linearSearch(dictionary, alword.lower())
         if results == -1:
             wordcount += 1
     endTime = time.time()
@@ -83,7 +83,7 @@ def alicebinary(aliceWords, dictionary):
     print("Binary Searching Starting ...")
     startTime = time.time()
     for alword in aliceWords:
-        results = binarySearch(dictionary, alword)
+        results = binarySearch(dictionary, alword.lower())
         if results == -1:
             wordcount += 1
     endTime = time.time()
