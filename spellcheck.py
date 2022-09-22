@@ -22,9 +22,9 @@ def main():
         elif selection == "2" or selection == "spell check a word (binary search)":
             wordbinary(dictionary)
         elif selection == "3" or selection == "spell check alice in wonderland (linear search)":
-            alicelinear()
+            alicelinear(aliceWords, dictionary)
         elif selection == "4" or selection == "spell check alice in wonderland (binary search)":
-            alicebinary()
+            alicebinary(aliceWords, dictionary)
         elif selection == "5" or selection == "exit":
             exit()
         else: 
@@ -60,17 +60,34 @@ def wordbinary(dictionary):
     startTime = time.time()
     result = binarySearch(dictionary, word)
     endTime = time.time()
-    timePassed = endTime - startTime
     if result == -1:
-        print(f"{word} is NOT IN the dictionary. ({timePassed}) seconds")
+        print(f"{word} is NOT IN the dictionary. ({endTime-startTime}) seconds")
     else:
-        print(f"{word} is IN the dictionary at position {result}. ({timePassed}) seconds")
+        print(f"{word} is IN the dictionary at position {result}. ({endTime-startTime}) seconds")
 
-def alicelinear():
-    pass
+def alicelinear(aliceWords, dictionary):
+    wordcount = 0
+    print("Linear Searching Starting ...")
+    startTime = time.time()
+    for alword in aliceWords:
+        results = linearSearch(dictionary, alword)
+        if results != -1:
+            wordcount += 1
+    endTime = time.time()
+    print(f"Number of words not found in dictionary: {wordcount} ({endTime-startTime}) seconds")
 
-def alicebinary():
-    pass
+
+
+def alicebinary(aliceWords, dictionary):
+    wordcount = 0
+    print("Binary Searching Starting ...")
+    startTime = time.time()
+    for alword in aliceWords:
+        results = binarySearch(dictionary, alword)
+        if results != -1:
+            wordcount += 1
+    endTime = time.time()
+    print(f"Number of words not found in dictionary: {wordcount} ({endTime-startTime}) seconds")
 
 def exit():
     loop = False
